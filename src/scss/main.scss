@@ -1,0 +1,387 @@
+:root {
+    --strong-cyan: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --darker-grayish-cyan: hsl(186, 14%, 43%);
+    --dark-grayish-cyan: hsl(184, 14%, 56%);
+    --light-grayish-cyan-bg: hsl(185, 41%, 84%);
+    --light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --error-clr: hsl(22, 63%, 54%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--light-grayish-cyan-bg);
+    font-family: 'Space Mono', monospace; 
+    font-size: 1.5rem; 
+    font-weight: 700; /* 400, 500, 700 */
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body,
+h1,
+h2,
+p,
+fieldset,
+button,
+input,
+label {
+    margin: 0;
+}
+
+header {
+    padding: 2rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+button,
+label {
+    user-select: none;
+}
+
+button,
+input,
+label {
+    border: none;
+    border-radius: 5px;
+    color: inherit;
+    font: inherit;
+    width: 100%;
+}
+
+/* ******************* */
+/*  Typography */
+/* ******************* */
+h2, 
+label,
+fieldset {
+    font-size: 0.9375rem;  
+}
+
+.reset-btn {
+    font-size: 1.25rem; 
+    text-transform: uppercase;
+}
+
+.num-input,
+.tip-label,
+::placeholder {
+    font-size: 1.5rem;   
+}
+
+.amount {
+    font-size: 2rem;
+}
+
+.per-person {
+    font-size: 0.875rem; 
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+
+/* ******************* */
+/*  Color  */
+/* ******************* */
+.primary-bg {
+    background-color: white;
+    color: var(--darker-grayish-cyan);
+}
+
+.secondary-bg {
+    background-color: var(--very-dark-cyan);
+    color: white;
+}
+
+.faded-bg {
+    background-color: var(--light-grayish-cyan);
+    color: var(--very-dark-cyan);
+}
+
+@media (hover) {
+    /* Placed before :checked style. */
+    .tip-input:hover + .tip-label,
+    .reset-btn:hover {
+        background-color: var(--light-grayish-cyan-bg);
+        color: var(--very-dark-cyan);
+        cursor: pointer;
+    }
+    .tip-input:hover {
+        cursor: pointer;
+    }
+}
+
+/* Placed before :checked style. */
+.tip-input:active + .tip-label,
+.reset-btn:active {
+    background-color: var(--light-grayish-cyan-bg);
+    color: var(--very-dark-cyan);
+    cursor: pointer;
+}
+
+.accent-bg,
+.tip-input:checked + .tip-label {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+::placeholder {
+    color: var(--darker-grayish-cyan);
+}
+
+/* Placed below parent color. */
+.amount {
+    color: var(--strong-cyan);
+}
+
+.amount::before {
+    content: '$';
+}
+
+.amount:empty::after {
+    content: '0.00';
+}
+
+/* Placed below parent color. */
+.per-person {
+    color: var(--dark-grayish-cyan);
+}
+
+
+/* ******************* */
+/*  Layout  */
+/* ******************* */
+.main {
+    border-radius: 1.625rem 1.625rem 0 0; 
+    padding: 1.5rem;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 480px;
+}
+
+.split-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.item {
+    width: 100%;
+}
+
+
+.splitter-input {
+    padding: 1rem 0.5rem;
+}
+
+.splitter-result {
+    border-radius: 1.125rem; 
+    padding: 2rem 1.5rem 1.5rem;
+}
+
+/* Position reset button at the end. */
+.splitter-result > .split-area {
+    height: 100%; 
+}
+
+.form-group + .form-group {
+    margin-top: 2.875rem;
+}
+
+.form-group .item {
+    flex: 1 100px;
+}
+
+.result-group,
+legend {
+    margin-bottom: 1rem;
+}
+
+.result-group {
+    /* Allow text and value to be closer to eachother. */
+    column-gap: 0.25em;
+}
+
+.reset-btn {
+    /* Position reset button at the end. */
+    margin-top: auto;
+    padding: 0.5em;
+}
+
+/* ******************* */
+/*  Input  */
+/* ******************* */
+.num-input,
+.tip-label {
+    /* Space to display custom placeholder. */
+    min-width: 7.5ch;
+    padding: 0.4rem; 
+}
+
+@media (hover) {
+    .num-input:hover {
+        cursor: pointer;
+        outline: 2px solid var(--strong-cyan);
+    }
+}
+
+.num-input:focus,
+.num-input:active {
+    cursor: pointer;
+    outline: 2px solid var(--strong-cyan);
+}
+
+.input-icon {
+    background-position: 0.6em center;
+    background-repeat: no-repeat;
+}
+
+.input-icon#people {
+    background-image: url(../assets/icon-person.svg);
+}
+
+.input-icon#bill {
+    background-image: url(../assets/icon-dollar.svg);
+}
+
+.tip-wrapper {
+    /* For the radio input. */
+    position: relative;
+}
+
+/* Remove radio input styling while making it 
+as big as the label for browsers focus style. */
+.tip-input {
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.tip-label {
+    display: block;
+}
+
+
+/* ******************* */
+/*  Validation  */
+/* ******************* */
+.validation {
+    /* Space between input and label. */
+    gap: 0.25em;
+}
+
+.validation > label {
+    /* Label before input. */
+     order: -1;
+     /* To align pseudo element. */
+     position: relative;
+ }
+
+ .validation > label::after {
+    position: absolute;
+    right: 0;
+    top: 0; 
+    color: var(--error-clr);
+}
+
+.num-input:invalid {
+    outline: 2px solid var(--error-clr);
+}
+
+.validation > .num-input:invalid + label::after {
+    content: "Can't be zero";
+}
+
+
+/* ******************* */
+/*  Media queries  */
+/* ******************* */
+@media screen and (min-width: 480px) {
+    .center-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .main {
+        --shadow-clr: hsl(186, 54%, 63%, 0.1);
+        border-radius: 1.625rem; 
+        padding: 2rem; 
+        box-shadow: 
+            0 2px 2px var(--shadow-clr),
+            0 4px 4px var(--shadow-clr),
+            0 8px 8px var(--shadow-clr),
+            0 16px 16px var(--shadow-clr),
+            0 32px 32px var(--shadow-clr),
+            0 64px 64px var(--shadow-clr);
+    }
+
+    .container {
+        margin-bottom: 5rem;
+    }
+
+    .splitter-input {
+        padding: 0.5rem 1rem;
+    }
+
+    .splitter-result {
+        padding: 3rem 2.5rem 2.5rem; 
+    }
+}
+
+
+@media screen and (min-width: 865px) {
+    header {
+        padding-bottom: 4rem;
+    }
+
+    .container {
+        max-width: 920px;
+    }
+
+    .splitter-input,
+    .splitter-result {
+        width: 48%;
+    }
+
+    .amount {
+        font-size: 3rem; 
+    }
+    
+    .per-person {
+        font-size: 0.875rem; 
+    }
+}

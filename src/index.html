@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <title>Frontend Mentor | Tip calculator app</title>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Page style -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="center-page">
+
+  <!-- Page wrapper to center content -->
+  <div>
+
+    <header>
+      <h1 class="text-center">
+        <img src="assets/logo.svg" alt="Splitter">
+      </h1>
+    </header>
+
+    <main class="main container primary-bg">
+      <div class="split-area">
+
+        <!-- Input -->
+        <div class="splitter-input item">
+          <form>
+            <!-- Bill -->
+            <div class="form-group validation split-area">
+              <input class="num-input input-icon text-right faded-bg" type="number" name="bill" id="bill" min="0.01"
+                step="any">
+              <label for="bill">Bill</label>
+            </div>
+            <!-- Tip -->
+            <div class="form-group">
+              <fieldset>
+                <legend>Select Tip %</legend>
+                <div class="split-area">
+                  <div class="tip-wrapper item">
+                    <input class="tip-input" type="radio" name="tip" id="tip-5" value="5">
+                    <label class="tip-label text-center secondary-bg" for="tip-5">5%</label>
+                  </div>
+                  <div class="tip-wrapper item">
+                    <input class="tip-input" type="radio" name="tip" id="tip-10" value="10">
+                    <label class="tip-label text-center secondary-bg" for="tip-10">10%</label>
+                  </div>
+                  <div class="tip-wrapper item">
+                    <input class="tip-input" type="radio" name="tip" id="tip-15" value="15">
+                    <label class="tip-label text-center secondary-bg" for="tip-15">15%</label>
+                  </div>
+                  <div class="tip-wrapper item">
+                    <input class="tip-input" type="radio" name="tip" id="tip-25" value="25">
+                    <label class="tip-label text-center secondary-bg" for="tip-25">25%</label>
+                  </div>
+                  <div class="tip-wrapper item">
+                    <input class="tip-input" type="radio" name="tip" id="tip-50" value="50">
+                    <label class="tip-label text-center secondary-bg" for="tip-50">50%</label>
+                  </div>
+                  <div class="item">
+                    <input class="num-input text-right faded-bg" type="number" name="tip" id="custom-tip"
+                      aria-label="custom tip" min="0.01" step="any" placeholder="Custom">
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- People -->
+            <div class="form-group validation split-area">
+              <input class="num-input input-icon text-right faded-bg" type="number" name="people" id="people" min="1"
+                step="1">
+              <label for="people">Number of People</label>
+            </div>
+          </form>
+        </div>
+
+        <!-- Result -->
+        <div class="splitter-result item secondary-bg">
+          <div class="split-area">
+
+            <div class="item">
+              <!-- Tip amount -->
+              <div class="result-group split-area align-center" aria-live="polite" aria-atomic="true">
+                <div>
+                  <h2>Tip Amount</h2>
+                  <p class="per-person">/ person</p>
+                </div>
+                <p id="result-tip" class="amount text-right">0.00</p>
+              </div>
+              <!-- Total -->
+              <div class="result-group split-area align-center" aria-live="polite" aria-atomic="true">
+                <div>
+                  <h2>Total</h2>
+                  <p class="per-person">/ person</p>
+                </div>
+                <p id="result-total" class="amount text-right">0.00</p>
+              </div>
+            </div>
+            <!-- Reset -->
+            <button class="reset-btn accent-bg" type="button" value="reset">Reset</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

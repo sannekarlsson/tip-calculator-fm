@@ -1,0 +1,61 @@
+{
+  "name": "tip-calculator",
+  "version": "1.0.0",
+  "description": "This is a solution to the Tip calculator app challenge on Frontend Mentor",
+  "author": "Sanne Karlsson",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://sannekarlsson.github.io/tip-calculator-fm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sannekarlsson/tip-calculator-fm"
+  },
+  "scripts": {
+    "build": "run-p html js scss assets",
+    "prebuild": "rm -rf dist/* && mkdir dist/js",
+    "assets": "cp -R src/assets/ dist/assets",
+    "html": "posthtml src/index.html -o dist",
+    "js": "rollup src/js/main.js -f iife | terser -o dist/js/main.js",
+    "scss": "sass src/scss/main.scss -s compressed | postcss -o dist/css/main.css",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "dev": "run-p watch-* serve",
+    "predev": "npm run build",
+    "dev-js": "rollup src/js/main.js -f iife -o dist/js/main.js",
+    "serve": "browser-sync dist -w -b 'google chrome'",
+    "watch-assets": "onchange 'src/assets' -- npm run assets",
+    "watch-html": "onchange 'src/*.html' -- npm run html",
+    "watch-js": "onchange 'src/js/*.js' -- npm run dev-js",
+    "watch-scss": "onchange 'src/scss/*.scss' -- npm run scss"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "browser-sync": "^2.27.5",
+    "gh-pages": "^3.2.3",
+    "htmlnano": "^1.1.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.3.9",
+    "postcss-cli": "^9.0.1",
+    "posthtml-cli": "^0.10.0",
+    "rollup": "^2.58.0",
+    "sass": "^1.42.1",
+    "terser": "^5.9.0"
+  },
+  "browserslist": [
+    "> 0.25%",
+    "not dead"
+  ],
+  "postcss": {
+    "plugins": {
+      "autoprefixer": true
+    }
+  },
+  "posthtml": {
+    "plugins": {
+      "htmlnano": {
+        "minifySvg": false
+      }
+    }
+  }
+}
