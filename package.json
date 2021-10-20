@@ -21,11 +21,10 @@
     "predeploy": "npm run build",
     "dev": "run-p watch-* serve",
     "predev": "npm run build",
-    "dev-js": "rollup src/js/main.js -f iife -o dist/js/main.js",
     "serve": "browser-sync dist -w -b 'google chrome'",
     "watch-assets": "onchange 'src/assets' -- npm run assets",
     "watch-html": "onchange 'src/*.html' -- npm run html",
-    "watch-js": "onchange 'src/js/*.js' -- npm run dev-js",
+    "watch-js": "onchange 'src/js/*.js' -- npm run js",
     "watch-scss": "onchange 'src/scss/*.scss' -- npm run scss"
   },
   "devDependencies": {
